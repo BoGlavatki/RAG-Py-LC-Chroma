@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with LLM</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-whJ6KZfWJAwgxlE+Vfrckps58Nty4qqK5siQZV30WAp3uMmLQbzNrrF5PY0i34jA" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-size: 1.2rem;
+        }
+
+        .chat-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .chat-message {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .chat-message.user {
+            justify-content: flex-end;
+        }
+
+        .chat-message.chatassistant {
+            justify-content: flex-start;
+        }
+
+        .chat-bubble {
+            max-width: 60%;
+            padding: 10px;
+            border-radius: 10px;
+            color: #ffffff;
+        }
+
+        .chat-bubble.user {
+            background-color: #007bff;
+            color: #ffffff;
+            text-align: right;
+        }
+
+        .chat-bubble.chatassistant {
+            background-color: #4a4a4a;
+            color: #ffffff;
+        }
+
+        #user_input {
+            font-size: 1.2rem;
+            width: calc(100% - 90px);
+            margin-right: 10px;
+            border-radius: 5px;
+            border: none;
+            padding: 10px;
+        }
+
+        .send-button {
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            font-size: 1.2rem;
+        }
+
+        #chat_window {
+            height: 400px;
+            overflow-y: auto;
+            padding: 10px;
+            background-color: #eeeee4;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+    </style>
+    <script>
+        async function sendMessage() {
+            const user_input = document.getElementById("user_input").value.trim(); // Trim entfernt führende/trailing Leerzeichen
+            if (!user_input) {
+                // Falls das Eingabefeld leer ist, passiert nichts
+                return;
+            }
+
+            const response = await fetch('/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ user_input: user_input })
+            }).then(res => res.json());
+
+            const chatWindow = document.getElementById("chat_window");
+
+            // Benutzer-Nachricht anzeigen
+            const userMessageDiv = document.createElement("div");
+            userMessageDiv.classList.add("chat-message", "user");
+            const userBubble = document.createElement("div");
+            userBubble.classList.add("chat-bubble", "user");
+            userBubble.innerText = user_input;
+            userMessageDiv.appendChild(userBubble);
+            chatWindow.appendChild(userMessageDiv);
+
+            // Antwort des ChatAssistenten der Hochschule Merseburg anzeigen
+            if (response.response) {
+                const botMessageDiv = document.createElement("div");
+                botMessageDiv.classList.add("chat-message", "chatassistant");
+                const botBubble = document.createElement("div");
+                botBubble.classList.add("chat-bubble", "chatassistant");
+                botBubble.innerText = 'ChatAssistent der Hochschule Merseburg: \n' + response.response;
+                botMessageDiv.appendChild(botBubble);
+                chatWindow.appendChild(botMessageDiv);
+            } else {
+                const errorMessageDiv = document.createElement("div");
+                errorMessageDiv.classList.add("chat-message", "bot");
+                const errorBubble = document.createElement("div");
+                errorBubble.classList.add("chat-bubble", "bot");
+                errorBubble.innerText = 'ChatAssistent der Hochschule Merseburg: Error: ' + response.error;
+                errorMessageDiv.appendChild(errorBubble);
+                chatWindow.appendChild(errorMessageDiv);
+            }
+
+            document.getElementById("user_input").value = "";
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+        }
+        // Event-Listener für Enter-Taste
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const inputField = document.getElementById("user_input");
+
+            inputField.addEventListener("keydown", function (event) {
+                if (event.key === "Enter") {
+                    event.preventDefault(); // Verhindert Standardaktionen
+                    sendMessage(); // Nachricht senden
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="chat-container">
+        <h2 class="text-center">Chatbot SL²</h2>
+        <div id="chat_window"></div>
+        <div class="input-group">
+            <input type="text" id="user_input" class="form-control" placeholder="Type your message here...">
+            <button class="btn btn-primary send-button" onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+6t4l2e5z9F6n5OwlJ9yO1H2g2VZr"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
