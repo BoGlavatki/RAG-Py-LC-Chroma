@@ -1,0 +1,145 @@
+/* Allgemeine Stile */
+body {
+    background-color: #121212;
+    color: #ffffff;
+    font-size: 1.2rem;
+}
+
+.chat-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.chat-window {
+    flex: 2;
+    margin-right: 20px;
+}
+
+.sidebar {
+    flex: 1;
+    background-color: #2a2a2a;
+    padding: 15px;
+    border-radius: 10px;
+    max-height: 100%;
+    overflow-y: auto;
+}
+
+#chat_window {
+    height: 400px;
+    overflow-y: auto;
+    padding: 10px;
+    background-color: #eeeee4;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* Stile für Eingabe */
+.input-group {
+    margin-top: 10px;
+}
+
+/* Größe und Schrift des Buttons */
+.btn {
+    font-size: 1.5rem; /* Schriftgröße */
+    padding: 10px 20px; /* Abstand innen */
+    border-radius: 8px;
+    width: 100%; /* Abgerundete Ecken */
+}
+
+/* Größe und Schrift der Eingabe (form-control) anpassen */
+ .form-control {
+    font-size: 1.5rem; /* Schriftgröße */
+    padding: 5px 0 5px 0px; /* Abstand im Feld */
+    height: auto; /* Automatische Höhe */
+    border-radius: 8px; /* Abgerundete Ecken */
+    width: 100%;
+}
+
+
+/* Stile für die Nachrichten */
+.chat-message {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.chat-message.user {
+    justify-content: flex-end;
+}
+
+.chat-message.chatassistant {
+    justify-content: flex-start;
+}
+
+.chat-bubble {
+    max-width: 70%;
+    padding: 10px;
+    border-radius: 10px;
+    line-height: 1.5;
+}
+
+/* Benutzer-Nachricht */
+.chat-bubble.user {
+    background-color: #d3d3d3; /* Hellgrauer Hintergrund */
+    color: #000000; /* Schwarzer Text */
+    align-self: flex-end;
+    border: 1px solid #c0c0c0;
+}
+
+/* Antwort des Chat-Assistenten */
+.chat-bubble.chatassistant {
+    background-color: #ffffff; /* Weißer Hintergrund */
+    color: #000000; /* Schwarzer Text */
+    align-self: flex-start;
+    border: 1px solid #dddddd;
+}
+
+/* Stile für die Datei-Liste */
+.file-list {
+    margin-top: 10px;
+    list-style: none;
+    padding: 0;
+    font-size: 1.2rem;
+}
+.noPadding{
+padding: 0;
+}
+.fileUpload{
+    font-size: 1.2rem;
+    padding: 0;
+}
+
+.file-list li {
+    margin-bottom: 5px;
+    background-color: #4a4a4a;
+    padding: 5px;
+    border-radius: 5px;
+    color: #ffffff;
+}
+
+.file-list li a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.file-list li:hover {
+    background-color: #007bff;
+    cursor: pointer;
+}
+#delete_section .btn-danger {
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #dc3545;
+    border: none;
+}
+
+#delete_section .btn-danger:hover {
+    background-color: #c82333;
+    cursor: pointer;
+}
