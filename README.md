@@ -80,7 +80,7 @@ ollama pull llama3.1:8b-instruct
 Nach dem Herunterladen können die Modelle für Embedding-Generierung oder andere Aufgaben genutzt werden.
 
 
-	3.	Starte dein Projekt oder arbeite mit der enthaltenen Funktionalität.
+	3.	Starten das Projekt.
  Eine virtuelle Umgebung aktivieren.
 Die Datei app.py starten:
 
