@@ -35,7 +35,6 @@ mein_virtuelles_umfeld\Scripts\activate     # Für Windows
 
 
 	2.	Installiere die Abhängigkeiten aus der requirements.txt wie oben beschrieben.
-	3.	Starte dein Projekt oder arbeite mit der enthaltenen Funktionalität.
 
 Optionale Schritte
 
@@ -54,6 +53,9 @@ sudo apt install tesseract-ocr tesseract-ocr-deu  # Optional: deutsches Sprachmo
 
 	•	Windows:
 Lade Tesseract von der offiziellen Seite herunter und füge es zur PATH-Umgebungsvariable hinzu.
+
+
+	3.	Nachdem die Abhängigkeiten aus der Datei requirements.txt auf dem Rechner installiert wurden, muss man LLMs mit Ollama installieren. 
 
 Embedding-Modelle
 
@@ -77,4 +79,14 @@ ollama pull llama3.1:8b-instruct
 
 Nach dem Herunterladen können die Modelle für Embedding-Generierung oder andere Aufgaben genutzt werden.
 
+
+	3.	Starte dein Projekt oder arbeite mit der enthaltenen Funktionalität.
+ Eine virtuelle Umgebung aktivieren.
+Die Datei app.py starten:
+
+```
+python3 app.py
+```
+
+Der Server wird unter http://127.0.0.1:5000 gestartet.
 Lizenz
