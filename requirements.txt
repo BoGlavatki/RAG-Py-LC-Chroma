@@ -1,0 +1,15 @@
+flask
+langchain
+chromadb
+unstructured
+unstructured_pytesseract
+pytesseract
+opencv-python-headless
+pdfminer.six
+layoutparser
+pdfplumber
+tokenizers==0.20.3
+tiktoken
+httpx
+unstructured_inference
+transformers
