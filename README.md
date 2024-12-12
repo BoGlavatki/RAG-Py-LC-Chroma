@@ -81,7 +81,8 @@ Nach dem Herunterladen können die Modelle für Embedding-Generierung oder ander
 
 
 	3.	Starten das Projekt.
- Eine virtuelle Umgebung aktivieren.
+Eine virtuelle Umgebung aktivieren.
+
 Die Datei app.py starten:
 
 ```
