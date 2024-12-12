@@ -62,8 +62,9 @@ Um Embedding-Modelle wie Nomic oder Llama 3 8B Instruct zu nutzen, benötigt man
 Modelle bereitstellen:
 	•	Für Nomic Embedding:
 
+```
 ollama pull nomic-embed-text
-
+```
 
 	•	Für Llama 3 8B Instruct:
 
