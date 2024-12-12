@@ -60,16 +60,19 @@ Embedding-Modelle
 Um Embedding-Modelle wie Nomic oder Llama 3 8B Instruct zu nutzen, benötigt man zunächst Ollama. Besuche die offizielle Website, um Ollama herunterzuladen und einzurichten.
 
 Modelle bereitstellen:
-	•	Für Nomic Embedding:
+	
+  Für Nomic Embedding:
 
 ```
 ollama pull nomic-embed-text
 ```
 
-	•	Für Llama 3 8B Instruct:
-
+	
+ Für Llama 3 8B Instruct:
+ 
+```
 ollama pull llama3.1:8b-instruct
-
+```
 
 
 Nach dem Herunterladen können die Modelle für Embedding-Generierung oder andere Aufgaben genutzt werden.
